@@ -15,4 +15,4 @@ We use it for our Redis-in-Docker-on-Nomad environment to make sure rolling depl
 ## Config
 
 - `REDIS_ADDR` Redis IP+Port to connect to - example: `127.0.0.1:6379`
-- `REDIS_ASS` Redis password to connect with - example: `SoSecure`
+- `REDIS_PASS` Redis password to connect with - example: `SoSecure`
