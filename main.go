@@ -29,17 +29,17 @@ func main() {
 
 	// check if redis is loading data from disk
 	if loading, ok := info["loading"]; ok && loading == "1" {
-		critical("Redis is currently loading data from disk")
+		warning("Redis is currently loading data from disk")
 	}
 
 	// check if redis is syncing data from master
 	if masterSyncInProgress, ok := info["master_sync_in_progress"]; ok && masterSyncInProgress == "1" {
-		critical("Redis slave is currently syncing data from its master instance")
+		warning("Redis slave is currently syncing data from its master instance")
 	}
 
 	// check if the master link is up
 	if masterLinkUpString, ok := info["master_link_status"]; ok && masterLinkUpString != "up" {
-		critical("Redis slave do not have active connection to its master instance")
+		warning("Redis slave do not have active connection to its master instance")
 	}
 
 	fmt.Printf("OK!")
@@ -58,6 +58,11 @@ func redisClient() *redis.Client {
 func critical(str string, args ...interface{}) {
 	fmt.Printf(str, args...)
 	os.Exit(2)
+}
+
+func warning(str string, args ...interface{}) {
+	fmt.Printf(str, args...)
+	os.Exit(1)
 }
 
 func parseKeyValue(str string) map[string]string {
