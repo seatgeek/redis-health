@@ -4,6 +4,7 @@ go:
   - 1.10.x
 
 script:
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
   - dep ensure
   - GOOS=linux GOARCH=amd64 go build -o build/redis-health-linux-amd64
   - GOOS=darwin GOARCH=amd64 go build -o build/redis-health-darwin-amd64
