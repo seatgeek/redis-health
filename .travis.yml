@@ -12,12 +12,11 @@ script:
 
 deploy:
   - provider: releases
-    api_key:
-      secure: "8ndDMyHpY3bW1gs7643K38/HS46TzR7i59g6wdVAY3ptB0k3bu+KQTaPp1rHpIKLaJeOAg+IGpNHh+j47jfgMIQ1ygmh1SDi6hC32S9NzuhA3gRsk6HSjjk8g5v6B/P3guaLyGZnRYDluceiP2uA6evGpdu7c4cYaE+b32fPzdO1E1VQpdMkHNGCB2GjHm7FKQYhzGduJaVAA4pqRs5KvTqm6AuErMmIctEsKJjsSPmMLrNFH7thLMFl0zZSKXlCvWOvDXBFnqkvAYQHIWPN5qQQM0dH4j+E/0mImQJxyxb6w+xFJWb9I5dmuEpffEKBNqGmQrREdrqEbrFv2OxYx8adDRMKMgZAZ43UVVZahvggzJdAT+RYmcYFzXdXuQmRo990fxfxLMV2CswkV+xubgfEWsVO2BstX67FISfndc0Isji9N0W5wclGunzzV1poZzQ1gK2wU5mn7ahSOO1KlDiKGNR9reaWt+E1N71QeRhGaGEV1Bl4mcK365l/E/meLCfZn6o42VGBcpeloCtap37hc4LgAmmG07igNkuqnnum3yf/fNr5cmtcRI+CA749E3XTrTvzvxQSX4vNWd4E17dRe1FfpcH8aLMc1mw+fvmvaFogt/Sr7W6/wRIy8b23HCtu/fB4Rjcme54K0WOZ6kEcf5WWFk6ACpG6Cj+6Z2o="
+    api_key: "${GITHUB_TOKEN}"
     file:
       - build/redis-health-linux-amd64
-      - build/redis-health-windows-amd64
       - build/redis-health-darwin-amd64
+      - build/redis-health-windows-amd64
     skip_cleanup: true
     overwrite: true
     on:
